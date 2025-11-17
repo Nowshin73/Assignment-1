@@ -1,6 +1,7 @@
 ## 1. Union and Intersection Types
 
 **Union Types:** Union types তখন ব্যবহার করা হয় যখন একটা variable একের অধিক type এর value ধারন করে। নিচে একটি উদাহরণ দেয়া হল। উদাহরণ টি লক্ষ্য করলে আমরা দেখতে পাই, price দুই ধরনের value বহন করতে পারে। যথাক্রমে string এবং number। এজন্য আমরা price declare করার সময় দুই ধরনের টাইপ mention করে দিয়েছি। এভাবে আমরা উদাহরণস্বরূপ price calculation এর  ক্ষেত্রে সতর্কতা অর্জন করতে পারি।
+
       let price: string | number;
       price = "123";
       price = 123;
