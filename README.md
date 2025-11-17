@@ -1,17 +1,15 @@
-**Union and Intersection Types**
+##1. Union and Intersection Types
 
-Union Types: A variable can hold one of multiple types.
+**- Union Types:** Union types are used when a value holds more than a single type
+      let value: string | number;
+      value = "123";
+      value = 123;
 
-let value: string | number;
-value = "Hello";
-value = 123;
 
-
-Intersection Types: Combines multiple types into one type.
-
-type Person = { name: string };
-type Employee = { id: number };
-
-type EmployeePerson = Person & Employee;
-
-const user: EmployeePerson = { name: "Rakib", id: 101 };
+**- Intersection Types:** Combines multiple types into one type.
+    type Person = { name: string };
+    type Employee = { id: number };
+    
+    type EmployeePerson = Person & Employee;
+    
+    const user: EmployeePerson = { name: "Rakib", id: 101 };
