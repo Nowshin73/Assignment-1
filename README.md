@@ -15,11 +15,14 @@
     const user: EmployeePerson = { name: "Rakib", id: 101 };
 
 ## 2. Differences Between any, unknown, and never
-**Any:** এটি এক ধরনের special type। Type "any" set করার মাধ্যমে type checking disable অর্থাৎ বন্ধ করে দেয়া হয়। যার ফলে কোন টাইপ error দেখায় না। নিচের উদাহরণে আমরা দেখতে পাই, v এর টাইপ any দেয়া হয়েছে। যার ফলে এটি কখনও boolean কখনও string value বহন করে। কিন্তু Math.round() এ number value এর বদলে string value pass করে যার ফলে টাইপ error দেখানোর কথা ছিল কিন্তু v ঐর টাইপ any দেয়ায় error দেখায় নি।    let v: any = true;
+**Any:** এটি এক ধরনের special type। Type "any" set করার মাধ্যমে type checking disable অর্থাৎ বন্ধ করে দেয়া হয়। যার ফলে কোন টাইপ error দেখায় না। নিচের উদাহরণে আমরা দেখতে পাই, v এর টাইপ any দেয়া হয়েছে। যার ফলে এটি কখনও boolean কখনও string value বহন করে। কিন্তু Math.round() এ number value এর বদলে string value pass করে যার ফলে টাইপ error দেখানোর কথা ছিল কিন্তু v ঐর টাইপ any দেয়ায় error দেখায় নি।   
+
+      let v: any = true;
       v = "string"; 
       Math.round(v); // no error as it can be "any" type
 
-**Unknown:** Safer alternative to any. Requires type checking before use.
+**Unknown:** এটা any type থেকে কিছুটা নিরাপদ। এই টাইপ ব্যবহার করলে type checking করতে হয় variable টি ব্যবহার করার পূর্বে। উদাহরণ স্বরূপ নিচের processValue function এ value এর টাইপ unknown declare করা আছে। value কোন কাজে ব্যবহারের পূর্বে টাইপ check করে নিতে হচ্ছে তারপর ব্যবহার করতে হচ্ছে। এখানে যদি type of value == string ধরা হয় তাহলে value টি কে string এর মত treat করা হবে এবং সে অনুযায়ী methods দেখাবে। অন্যথায় value টি যদি Array type ধরা হয় তাহলে তাকে Array এর মত treat করা হবে।
+
 
     function processValue(value: unknown) {
         if (typeof value === 'string') {
@@ -31,7 +34,7 @@
         }
      }
 
-**Never:** Represents values that never occur, e.g., functions that always throw errors.
+**Never:**  এটি মূলত সেসব value এর জন্য ব্যবহার করা হয় যেসব সাধারণত error হয়। যেমন যে function error throw করে। 
 
       function throwError(message: string): never {
         throw new Error(message);
