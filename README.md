@@ -1,5 +1,17 @@
-**What are some differences between interfaces and types in TypeScript?**
-What is the use of the keyof keyword in TypeScript? Provide an example.
-Explain the difference between any, unknown, and never types in TypeScript.
-What is the use of enums in TypeScript? Provide an example of a numeric and string enum.
-Provide an example of using union and intersection types in TypeScript.
+**Union and Intersection Types**
+
+Union Types: A variable can hold one of multiple types.
+
+let value: string | number;
+value = "Hello";
+value = 123;
+
+
+Intersection Types: Combines multiple types into one type.
+
+type Person = { name: string };
+type Employee = { id: number };
+
+type EmployeePerson = Person & Employee;
+
+const user: EmployeePerson = { name: "Rakib", id: 101 };
