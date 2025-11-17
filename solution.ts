@@ -46,6 +46,51 @@ const person2 = new Person('Alice', 25);
 console.log(person2.getDetails());
 
 // Problem 4
-const filterByRating = (title:string, rating:[]) =>{
-
+const filterByRating = (input: { title: string, rating: number }[]) => {
+    return input.filter((i) => (i.rating >= 4 && i.rating <= 5) && i);
 }
+const books = [
+    { title: 'Book A', rating: 4.5 },
+    { title: 'Book B', rating: 3.2 },
+    { title: 'Book C', rating: 5.0 },
+];
+
+console.log(filterByRating(books));
+
+//Problem 5
+const filterActiveUsers = (input: { id: number, name: string, email: string, isActive: boolean }[]) => {
+    return input.filter((i) => i.isActive === true && i);
+}
+const users = [
+    { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
+    { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
+    { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
+];
+
+console.log(filterActiveUsers(users));
+
+//Problem 6
+interface Book {
+    title: string;
+    author: string;
+    publishedYear: number;
+    isAvailable: boolean;
+}
+const printBookDetails =(input: Book) =>{
+    const {title, author, publishedYear, isAvailable} = input;
+    console.log(`Title: ${title}, Author: ${author}, Published: ${publishedYear}, Available: ${isAvailable}`);
+}
+const myBook: Book = {
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  publishedYear: 1925,
+  isAvailable: true,
+};
+
+printBookDetails(myBook);
+
+//problem 7
+
+const getUniqueValues = (input1:number[],input2:number[]): number[] =>{
+
+} 
