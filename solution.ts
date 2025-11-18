@@ -61,7 +61,8 @@ const printBookDetails = (book: Book) => {
 const getUniqueValues = (Array1: (string | number)[], Array2: (string | number)[]): (string | number)[] => {
   let jointArr: (string | number)[] = [];
   let j:number = 0;
-  const addUnique = (value: string | number): boolean => {
+ 
+  const addUnique = (value: string | number) => {
     let duplicate = false;
 
     for (let i = 0; i < jointArr.length; i++) {
@@ -97,5 +98,6 @@ const calculateTotalPrice =
       discount?: number
     }[]
   ): number => {
-    return products.reduce((sum, product) => sum + product.price * product.quantity - (product.discount ? ((product.discount * product.price * product.quantity) / 100) : 0), 0)
+    return products.reduce((sum, product) =>   sum + product.price * product.quantity - (product.discount ? ((product.discount * product.price * product.quantity) / 100) : 0), 0  )
+     
   }
